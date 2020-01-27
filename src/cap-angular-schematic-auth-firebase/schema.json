@@ -15,32 +15,32 @@
         "x-prompt": "Set your Auth Domain: "
       },
       "databaseURL": {
-        "type": "databaseURL",
+        "type": "string",
         "description": "domian",
         "x-prompt": "Set your data base URL:"
       },
       "projectId": {
-        "type": "projectId",
+        "type": "string",
         "description": "domian",
         "x-prompt": "Set your Project ID: "
       },
       "storageBucket": {
-        "type": "storageBucket",
+        "type": "string",
         "description": "domian",
         "x-prompt": "Set your storage bucket: "
       },
       "senderId": {
-        "type": "databaseURL",
+        "type": "string",
         "description": "domian",
         "x-prompt": "Set your message sender ID:"
       },
       "appId": {
-        "type": "databaseURL",
+        "type": "string",
         "description": "domian",
         "x-prompt": "Set your app ID:"
       },
       "measurementId": {
-        "type": "databaseURL",
+        "type": "string",
         "description": "domian",
         "x-prompt": "Set your measurement ID:"
       }
