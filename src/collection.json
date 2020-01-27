@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "cap-angular-schematic-auth-firebase": {
+      "description": "A blank schematic.",
+      "factory": "./cap-angular-schematic-auth-firebase/index",
+      "schema": "./cap-angular-schematic-auth-firebase/schema.json"
+    }
+  }
+}

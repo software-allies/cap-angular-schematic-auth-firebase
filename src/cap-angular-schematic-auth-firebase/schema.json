@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "cap-angular-schematic-auth-auth0",
+    "title": "cap-angular-schematic-auth-auth0",
+    "type": "object",
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "apiKey",
+        "x-prompt": "Set your ApiKey: "
+      },
+      "authDomain": {
+        "type": "string",
+        "description": "authDomain",
+        "x-prompt": "Set your Auth Domain: "
+      },
+      "databaseURL": {
+        "type": "databaseURL",
+        "description": "domian",
+        "x-prompt": "Set your data base URL:"
+      },
+      "projectId": {
+        "type": "projectId",
+        "description": "domian",
+        "x-prompt": "Set your Project ID: "
+      },
+      "storageBucket": {
+        "type": "storageBucket",
+        "description": "domian",
+        "x-prompt": "Set your storage bucket: "
+      },
+      "senderId": {
+        "type": "databaseURL",
+        "description": "domian",
+        "x-prompt": "Set your message sender ID:"
+      },
+      "appId": {
+        "type": "databaseURL",
+        "description": "domian",
+        "x-prompt": "Set your app ID:"
+      },
+      "measurementId": {
+        "type": "databaseURL",
+        "description": "domian",
+        "x-prompt": "Set your measurement ID:"
+      }
+    },
+    "required": []
+  }
