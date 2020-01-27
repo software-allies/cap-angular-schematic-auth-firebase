@@ -1,8 +1,7 @@
 import { Injectable, Inject, PLATFORM_ID} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { map } from 'rxjs/operators';
+
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -13,7 +12,6 @@ export class AuthenticationService {
   private user: Observable<firebase.User | null>;
 
   constructor(
-    protected http: HttpClient,
     @Inject(PLATFORM_ID) private platformId,
     private afAuth: AngularFireAuth
   ) {

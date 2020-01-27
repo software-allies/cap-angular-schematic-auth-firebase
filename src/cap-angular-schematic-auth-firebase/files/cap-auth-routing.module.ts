@@ -9,10 +9,15 @@ import { CanActivaInService } from './canActivate-in.service';
 import { CanActivaOutService } from './canActivate-out.service';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent, canActivate: [CanActivaOutService]},
-  { path: 'login', component: LoginComponent, canActivate: [CanActivaOutService]},
-  { path: 'forgot-password', component: ForgotComponent, canActivate: [CanActivaOutService]},
-  { path: 'profile', component : ProfileComponent, canActivate: [CanActivaInService]}
+  {
+    path: 'auth',
+    children: [
+      { path: 'register', component: RegisterComponent, canActivate: [CanActivaOutService]},
+      { path: 'login', component: LoginComponent, canActivate: [CanActivaOutService]},
+      { path: 'forgot-password', component: ForgotComponent, canActivate: [CanActivaOutService]},
+      { path: 'profile', component : ProfileComponent, canActivate: [CanActivaInService]}
+    ]
+  }
 ];
 
 @NgModule({
