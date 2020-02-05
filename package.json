@@ -1,15 +1,28 @@
 {
   "name": "cap-angular-schematic-auth-firebase",
-  "version": "0.0.0",
-  "description": "A blank schematics",
+  "version": "1.0.0",
+  "description": "Angular schematic dedicated to the authentication of users with Firebase services.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
-    "schematics"
+    "schematics",
+    "angular",
+    "cap-authentication-firebase",
+    "firebase",
+    "angular/fire",
+    "authentication"
   ],
-  "author": "",
+  "author": {
+    "email": "lenin_emmanuel@hotmail.com",
+    "name": "Lenin Emmanuel",
+    "url": "https://github.com/leninEmmanuel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/software-allies/cap-angular-schematic-auth-firebase"
+  },
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
@@ -23,5 +36,8 @@
     "schematics-utilities": "^2.0.0",
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
+  },
+  "devDependencies": {
+    "schematics-utilities": "^2.0.0"
   }
 }
