@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { AuthRoutingModule } from './cap-auth-routing.module';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationService } from './authentication.service';
@@ -33,12 +34,14 @@ import { AngularFireModule } from '@angular/fire';
   declarations: [
     RegisterComponent,
     LoginComponent,
+    LogoutComponent,
     ForgotComponent,
     ProfileComponent
   ],
   entryComponents:[
     RegisterComponent,
     LoginComponent,
+    LogoutComponent,
     ForgotComponent,
     ProfileComponent
   ],
