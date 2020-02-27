@@ -81,7 +81,7 @@ export function capAngularSchematicAuthFirebase(_options: any): Rule {
 export function addPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     const dependencies: NodeDependency[] = [
-      { type: NodeDependencyType.Default, version: '^1.0.4', name: 'cap-authentication-firebase' },
+      { type: NodeDependencyType.Default, version: '^1.0.5', name: 'cap-authentication-firebase' },
       { type: NodeDependencyType.Default, version: '^7.2.3', name: 'firebase' },
       { type: NodeDependencyType.Default, version: '^5.2.1', name: '@angular/fire' },
       { type: NodeDependencyType.Default, version: '^4.3.1', name: 'bootstrap' },
