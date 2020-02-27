@@ -83,6 +83,7 @@ export function addPackageJsonDependencies(): Rule {
     const dependencies: NodeDependency[] = [
       { type: NodeDependencyType.Default, version: '^1.0.5', name: 'cap-authentication-firebase' },
       { type: NodeDependencyType.Default, version: '^7.2.3', name: 'firebase' },
+      { type: NodeDependencyType.Default, version: '^3.0.1', name: '@auth0/angular-jwt' },
       { type: NodeDependencyType.Default, version: '^5.2.1', name: '@angular/fire' },
       { type: NodeDependencyType.Default, version: '^4.3.1', name: 'bootstrap' },
     ];
