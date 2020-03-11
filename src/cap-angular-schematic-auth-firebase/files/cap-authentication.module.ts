@@ -47,5 +47,5 @@ import { AngularFireModule } from '@angular/fire';
   ],
   providers: [AuthenticationService]
 })
-export class CapAuthModule {
+export class CapAuthenticationModule {
 }
