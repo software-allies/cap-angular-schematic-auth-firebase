@@ -51,7 +51,7 @@ export function setupOptions(host: Tree, options: any): Tree {
   }
   const project = workspace.projects[options.project];
 
-  options.path = join(normalize(project.root), 'src/app/modules/cap-auth');
+  options.path = join(normalize(project.root), 'src/app/modules/cap-authentication');
   return host;
 }
 
@@ -81,7 +81,7 @@ export function capAngularSchematicAuthFirebase(_options: any): Rule {
 export function addPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     const dependencies: NodeDependency[] = [
-      { type: NodeDependencyType.Default, version: '^1.0.6', name: 'cap-authentication-firebase' },
+      { type: NodeDependencyType.Default, version: '^1.0.8', name: 'cap-authentication-firebase' },
       { type: NodeDependencyType.Default, version: '^7.2.3', name: 'firebase' },
       { type: NodeDependencyType.Default, version: '^3.0.1', name: '@auth0/angular-jwt' },
       { type: NodeDependencyType.Default, version: '^5.2.1', name: '@angular/fire' },
@@ -107,9 +107,9 @@ function addModuleToImports (options: any): Rule {
   return (host: Tree) => {
     const workspace = getWorkspace(host);
     let project : WorkspaceProject = getProjectFromWorkspace(workspace, options.project);
-    const moduleName = 'CapAuthModule';
+    const moduleName = 'CapAuthenticationModule';
     const modulePath = getAppModulePath(host, getProjectMainFile(project));
-    auxAddModuleRoorToImports(host, modulePath, moduleName, './modules/cap-auth/cap-auth.module');
+    auxAddModuleRoorToImports(host, modulePath, moduleName, './modules/cap-authentication/cap-authentication.module');
     return host;
   };
 }
