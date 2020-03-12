@@ -16,33 +16,38 @@
       },
       "databaseURL": {
         "type": "string",
-        "description": "domian",
+        "description": "databaseURL",
         "x-prompt": "Set your data base URL:"
       },
       "projectId": {
         "type": "string",
-        "description": "domian",
+        "description": "projectId",
         "x-prompt": "Set your Project ID: "
       },
       "storageBucket": {
         "type": "string",
-        "description": "domian",
+        "description": "storageBucket",
         "x-prompt": "Set your storage bucket: "
       },
       "senderId": {
         "type": "string",
-        "description": "domian",
+        "description": "senderId",
         "x-prompt": "Set your message sender ID:"
       },
       "appId": {
         "type": "string",
-        "description": "domian",
+        "description": "appId",
         "x-prompt": "Set your app ID:"
       },
       "measurementId": {
         "type": "string",
-        "description": "domian",
+        "description": "measurementId",
         "x-prompt": "Set your measurement ID:"
+      },
+      "endPoint": {
+        "type": "string",
+        "description": "endPoint to save users",
+        "x-prompt": "Set your endPoint:"
       }
     },
     "required": []

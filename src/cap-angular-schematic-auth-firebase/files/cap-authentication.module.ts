@@ -19,7 +19,9 @@ import { AngularFireModule } from '@angular/fire';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthenticationModule,
+    AuthenticationModule.forRoot({
+      endPoint: '<%=endPoint%>'
+    }),
     AngularFireModule.initializeApp({
       apiKey: '<%=apiKey%>',
       authDomain: '<%=authDomain%>',
