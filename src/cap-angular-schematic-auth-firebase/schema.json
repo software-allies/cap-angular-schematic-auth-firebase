@@ -1,53 +1,98 @@
 {
     "$schema": "http://json-schema.org/schema",
-    "id": "cap-angular-schematic-auth-auth0",
-    "title": "cap-angular-schematic-auth-auth0",
+    "id": "cap-angular-schematic-auth-firebase",
+    "title": "cap-angular-schematic-auth-firebase",
     "type": "object",
     "properties": {
+      "credentials": {
+        "type": "boolean",
+        "description": "Show or hide credentials",
+        "x-prompt": "Make credentials reference to environment.ts?",
+        "$default": {
+          "$source": "argv",
+          "index": 0
+        }
+      },
       "apiKey": {
         "type": "string",
         "description": "apiKey",
-        "x-prompt": "Set your ApiKey: "
+        "x-prompt": "Set your ApiKey: ",
+        "$default": {
+          "$source": "argv",
+          "index": 1
+        }
       },
       "authDomain": {
         "type": "string",
         "description": "authDomain",
-        "x-prompt": "Set your Auth Domain: "
+        "x-prompt": "Set your Auth Domain: ",
+        "$default": {
+          "$source": "argv",
+          "index": 2
+        }
       },
       "databaseURL": {
         "type": "string",
         "description": "databaseURL",
-        "x-prompt": "Set your data base URL:"
+        "x-prompt": "Set your data base URL:",
+        "$default": {
+          "$source": "argv",
+          "index": 3
+        }
       },
       "projectId": {
         "type": "string",
         "description": "projectId",
-        "x-prompt": "Set your Project ID: "
+        "x-prompt": "Set your Project ID:",
+        "$default": {
+          "$source": "argv",
+          "index": 4
+        }
       },
       "storageBucket": {
         "type": "string",
         "description": "storageBucket",
-        "x-prompt": "Set your storage bucket: "
+        "x-prompt": "Set your storage bucket:",
+        "$default": {
+          "$source": "argv",
+          "index": 5
+        }
       },
       "senderId": {
         "type": "string",
         "description": "senderId",
-        "x-prompt": "Set your message sender ID:"
+        "x-prompt": "Set your message sender ID:",
+        "$default": {
+          "$source": "argv",
+          "index": 6
+        }
       },
       "appId": {
         "type": "string",
         "description": "appId",
-        "x-prompt": "Set your app ID:"
+        "x-prompt": "Set your app ID:",
+        "$default": {
+          "$source": "argv",
+          "index": 7
+        }
       },
       "measurementId": {
         "type": "string",
         "description": "measurementId",
-        "x-prompt": "Set your measurement ID:"
+        "x-prompt": "Set your measurement ID:",
+        "$default": {
+          "$source": "argv",
+          "index": 8
+        }
       },
       "endPoint": {
         "type": "string",
         "description": "endPoint to save users",
-        "x-prompt": "Set your endPoint:"
+        "x-prompt": "Set your endPoint:",
+        "$default": {
+          "$source": "argv",
+          "index": 9
+        }
       }
     },
     "required": []
