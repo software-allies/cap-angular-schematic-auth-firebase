@@ -14,7 +14,8 @@ import {
   noop,
   SchematicsException
 } from '@angular-devkit/schematics';
-
+import { Schema as SchemaOptions } from './schema';
+import { getFileContent } from '@schematics/angular/utility/test';
 import {
   addPackageJsonDependency,
   getWorkspace,
@@ -40,7 +41,24 @@ export default function (options: any): Rule {
     options && options.skipPackageJson ? noop() : addPackageJsonDependencies(),
     options && options.skipPackageJson ? noop() : installPackageJsonDependencies(),
     options && options.skipModuleImport ? noop() : addModuleToImports(options),
+    addToEnvironments(options)
   ]);
+}
+
+function addToEnvironments(options: SchemaOptions): Rule {
+  return (host: Tree) => {
+      // development environment
+      addEnvironmentVar(host, '', '/src', 'apiKey', options.apiKey);
+      addEnvironmentVar(host, '', '/src', 'authDomain', options.authDomain);
+      addEnvironmentVar(host, '', '/src', 'databaseURL', options.databaseURL);
+      addEnvironmentVar(host, '', '/src', 'projectId', options.projectId);
+      addEnvironmentVar(host, '', '/src', 'storageBucket', options.storageBucket);
+      addEnvironmentVar(host, '', '/src', 'messagingSenderId', options.measurementId);
+      addEnvironmentVar(host, '', '/src', 'appId', options.appId);
+      addEnvironmentVar(host, '', '/src', 'measurementId', options.measurementId);
+      // addEnvironmentVar(host, '', options.path || '/src', 'measurementId', options.measurementId);
+
+  }
 }
 
 
@@ -130,5 +148,13 @@ export function auxAddModuleRoorToImports (host: Tree, modulePath: string, modul
   });
   host.commitUpdate(recorder);
   return host
+}
+
+export function addEnvironmentVar(host: Tree, env: string, appPath: string, key: string, value: string): void {
+  const environmentFilePath = `${appPath}/environments/environment${(env) ? '.' + env : ''}.ts`;
+  const sourceFile = getFileContent(host, environmentFilePath);
+  const keyValue = `
+  ${key}: '${value}',`;
+  host.overwrite(environmentFilePath, sourceFile.replace('export const environment = {', `export const environment = {${keyValue}` ));
 }
 
