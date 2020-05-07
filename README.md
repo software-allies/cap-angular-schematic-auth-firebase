@@ -7,14 +7,12 @@ What distinguishes Schematics from other generators, such as Yeoman or Yarn Crea
 
 
 ## **Previous requirements**
-**cap-angular-schematic-auth-firebase** use bootstrap's classes. To be able to display the component in the right way. Schematic install bootstrap automatically to the most recent version and you have to configure the `angular.json` and write into `styles` [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/download/):
+**cap-angular-schematic-auth-firebase** use bootstrap's classes, You can use a CAP product to configure and install bootstrap to your project the installation is as follows.
 
 ```
-"styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "styles.scss"
-]
+ng add cap-angular-schematic-bootstrap@latest 4.0.0 true
 ```
+![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/cap-angular-schematic-bootstrap.png "cap-angular-schematic-bootstrap")
 
 ## **Usage**
 `Note:` the schematic only works within an angular project.
@@ -24,6 +22,8 @@ To run the schematic you have to execute the following command on your terminal.
 ```
 ng add cap-angular-schematic-auth-firebase
 ```
+![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/cap-angular-schematic-firebase.png "cap-angular-schematic-bootstrap")
+
 We must have previously created a project on [Firebase platform](https://console.firebase.google.com/u/0/) and enabled authentication methods such as Email/password, Facebook and Google. We will need the credentials in our firebase application right away that the schematic will ask for
 
 * Set your ApiKey: < your-ApiKey >
@@ -49,6 +49,39 @@ modules
         |-- routing.ts 
         |-- service.ts
         |-- module.ts
-        
 ```
+
+Now you can run your server from your angular project that we just modified and open the browser at `http://localhost:4200/` and navigate on the different routes of the components of this schematic.
+
+* Login `/auth/login`
+
+![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/login.png "Login")
+
+* Register `/auth/register`
+
+![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/register.png "Login")
+
+* Forgot `/auth/forgot-password`
+
+![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/forgot.png "Login")
+
+* Profile `/auth/profile`
+
+![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/profile.png 
+"Login")
+
+* LogOut function 
+
+```
+import { AuthenticationService } from 'cap-authentication';
+
+export class Component implements OnInit {
+  constructor (public authenticationService: AuthenticationService) { }
+  
+  logoutFunction() {
+   this.authenticationService.signOut() // Return to home page 
+  }
+}
+```
+
 
