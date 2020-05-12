@@ -12,7 +12,7 @@ What distinguishes Schematics from other generators, such as Yeoman or Yarn Crea
 ```
 ng add cap-angular-schematic-bootstrap@latest 4.0.0 true
 ```
-![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/cap-angular-schematic-bootstrap.png "cap-angular-schematic-bootstrap")
+![Alt text](https://raw.githubusercontent.com/software-allies/cap-angular-schematic-auth-firebase/development/assets/images/cap-angular-schematic-bootstrap.png "cap-angular-schematic-bootstrap")
 
 ## **Usage**
 `Note:` the schematic only works within an angular project.
@@ -22,7 +22,7 @@ To run the schematic you have to execute the following command on your terminal.
 ```
 ng add cap-angular-schematic-auth-firebase
 ```
-![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/cap-angular-schematic-firebase.png "cap-angular-schematic-bootstrap")
+![Alt text](https://raw.githubusercontent.com/software-allies/cap-angular-schematic-auth-firebase/development/assets/images/cap-angular-schematic-firebase.png "cap-angular-schematic-bootstrap")
 
 We must have previously created a project on [Firebase platform](https://console.firebase.google.com/u/0/) and enabled authentication methods such as Email/password, Facebook and Google. We will need the credentials in our firebase application right away that the schematic will ask for
 
@@ -55,20 +55,20 @@ Now you can run your server from your angular project that we just modified and 
 
 * Login `/auth/login`
 
-![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/login.png "Login")
+![Alt text](https://raw.githubusercontent.com/software-allies/cap-angular-schematic-auth-firebase/development/assets/images/login.png "Login")
 
 * Register `/auth/register`
 
-![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/register.png "Login")
+![Alt text](https://raw.githubusercontent.com/software-allies/cap-angular-schematic-auth-firebase/development/assets/images/register.png "Login")
 
 * Forgot `/auth/forgot-password`
 
-![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/forgot.png "Login")
+![Alt text](https://raw.githubusercontent.com/software-allies/cap-angular-schematic-auth-firebase/development/assets/images/forgot.png "Login")
 
 * Profile `/auth/profile`
 
-![Alt text](https://github.com/software-allies/cap-angular-schematic-auth-firebase/blob/development/assets/images/profile.png 
-"Login")
+![Alt text](https://raw.githubusercontent.com/software-allies/cap-angular-schematic-auth-firebase/development/assets/images/profile.png
+"Profile")
 
 * LogOut function 
 
@@ -83,5 +83,3 @@ export class Component implements OnInit {
   }
 }
 ```
-
-
