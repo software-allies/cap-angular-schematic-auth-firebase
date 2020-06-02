@@ -8,6 +8,7 @@ export interface Schema {
     appId: string;
     measurementId: string;
     endPoint: string;
+    credentials: boolean;
     project?: string
     path?: string;
     module?: any;
