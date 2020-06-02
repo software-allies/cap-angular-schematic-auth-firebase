@@ -12,7 +12,6 @@ import { AuthenticationService } from './authentication.service';
 
 import { AuthenticationModule } from 'cap-authentication-firebase';
 import { AngularFireModule } from '@angular/fire';
-
 import { environment } from '../../../environments/environment';
 
 @NgModule({
@@ -25,14 +24,14 @@ import { environment } from '../../../environments/environment';
       endPoint: '<%=endPoint%>'
     }),
     AngularFireModule.initializeApp({
-      apiKey: <%= credentials ? `environment.apiKey` : `'${apiKey}'` %>,
-      authDomain: <%= credentials ? `environment.authDomain` : `'${authDomain}'` %>,
-      databaseURL: <%= credentials ? `environment.databaseURL` : `'${databaseURL}'` %>,
-      projectId: <%= credentials ? `environment.projectId` : `'${projectId}'` %>,
-      storageBucket: <%= credentials ? `environment.storageBucket` : `'${storageBucket}'` %>,
-      messagingSenderId: <%= credentials ? `environment.messagingSenderId` : `'${senderId}'` %>,
-      appId: <%= credentials ? `environment.appId` : `'${appId}'` %>,
-      measurementId: <%= credentials ? `environment.measurementId` : `'${measurementId}'` %>
+      apiKey: environment.apiKey,
+      authDomain: environment.authDomain,
+      databaseURL: environment.databaseURL,
+      projectId: environment.projectId,
+      storageBucket: environment.storageBucket,
+      messagingSenderId: environment.messagingSenderId,
+      appId: environment.appId,
+      measurementId: environment.measurementId
     }),
   ],
   declarations: [

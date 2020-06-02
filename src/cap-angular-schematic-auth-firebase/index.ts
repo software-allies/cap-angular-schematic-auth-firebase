@@ -48,16 +48,15 @@ export default function (options: any): Rule {
 function addToEnvironments(options: SchemaOptions): Rule {
   return (host: Tree) => {
       // development environment
-      addEnvironmentVar(host, '', '/src', 'apiKey', options.apiKey);
-      addEnvironmentVar(host, '', '/src', 'authDomain', options.authDomain);
-      addEnvironmentVar(host, '', '/src', 'databaseURL', options.databaseURL);
-      addEnvironmentVar(host, '', '/src', 'projectId', options.projectId);
-      addEnvironmentVar(host, '', '/src', 'storageBucket', options.storageBucket);
-      addEnvironmentVar(host, '', '/src', 'messagingSenderId', options.measurementId);
-      addEnvironmentVar(host, '', '/src', 'appId', options.appId);
-      addEnvironmentVar(host, '', '/src', 'measurementId', options.measurementId);
+      addEnvironmentVar(host, '', '/src', 'apiKey', options.credentials ? options.apiKey : '');
+      addEnvironmentVar(host, '', '/src', 'authDomain', options.credentials ? options.authDomain : '');
+      addEnvironmentVar(host, '', '/src', 'databaseURL', options.credentials ? options.databaseURL: '');
+      addEnvironmentVar(host, '', '/src', 'projectId', options.credentials ? options.projectId : '');
+      addEnvironmentVar(host, '', '/src', 'storageBucket', options.credentials ? options.storageBucket : '');
+      addEnvironmentVar(host, '', '/src', 'messagingSenderId', options.credentials ? options.measurementId : '');
+      addEnvironmentVar(host, '', '/src', 'appId', options.credentials ? options.appId : '');
+      addEnvironmentVar(host, '', '/src', 'measurementId', options.credentials ? options.measurementId : '');
       // addEnvironmentVar(host, '', options.path || '/src', 'measurementId', options.measurementId);
-
   }
 }
 
