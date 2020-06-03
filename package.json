@@ -1,18 +1,19 @@
 {
   "name": "cap-angular-schematic-auth-firebase",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Angular schematic dedicated to the authentication of users with Firebase services.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
-    "schematics",
-    "angular",
-    "cap-authentication-firebase",
-    "firebase",
+    "authentication",
     "angular/fire",
-    "authentication"
+    "schematics",
+    "firebase",
+    "angular",
+    "CAP",
+    "generator-cap"
   ],
   "author": {
     "email": "lenin_emmanuel@hotmail.com",

@@ -47,16 +47,26 @@ export default function (options: any): Rule {
 
 function addToEnvironments(options: SchemaOptions): Rule {
   return (host: Tree) => {
-      // development environment
-      addEnvironmentVar(host, '', '/src', 'apiKey', options.credentials ? options.apiKey : '');
-      addEnvironmentVar(host, '', '/src', 'authDomain', options.credentials ? options.authDomain : '');
-      addEnvironmentVar(host, '', '/src', 'databaseURL', options.credentials ? options.databaseURL: '');
-      addEnvironmentVar(host, '', '/src', 'projectId', options.credentials ? options.projectId : '');
-      addEnvironmentVar(host, '', '/src', 'storageBucket', options.credentials ? options.storageBucket : '');
-      addEnvironmentVar(host, '', '/src', 'messagingSenderId', options.credentials ? options.measurementId : '');
-      addEnvironmentVar(host, '', '/src', 'appId', options.credentials ? options.appId : '');
-      addEnvironmentVar(host, '', '/src', 'measurementId', options.credentials ? options.measurementId : '');
-      // addEnvironmentVar(host, '', options.path || '/src', 'measurementId', options.measurementId);
+    // development environment
+    addEnvironmentVar(host, '', '/src', 'apiKey', options.credentials ? options.apiKey : '');
+    addEnvironmentVar(host, '', '/src', 'authDomain', options.credentials ? options.authDomain : '');
+    addEnvironmentVar(host, '', '/src', 'databaseURL', options.credentials ? options.databaseURL: '');
+    addEnvironmentVar(host, '', '/src', 'projectId', options.credentials ? options.projectId : '');
+    addEnvironmentVar(host, '', '/src', 'storageBucket', options.credentials ? options.storageBucket : '');
+    addEnvironmentVar(host, '', '/src', 'messagingSenderId', options.credentials ? options.measurementId : '');
+    addEnvironmentVar(host, '', '/src', 'appId', options.credentials ? options.appId : '');
+    addEnvironmentVar(host, '', '/src', 'measurementId', options.credentials ? options.measurementId : '');
+    // addEnvironmentVar(host, '', options.path || '/src', 'measurementId', options.measurementId);
+    if (options.credentials) {
+      addEnvironmentVar(host, 'prod', '/src', 'apiKey', options.credentials ? options.apiKey : '');
+      addEnvironmentVar(host, 'prod', '/src', 'authDomain', options.credentials ? options.authDomain : '');
+      addEnvironmentVar(host, 'prod', '/src', 'databaseURL', options.credentials ? options.databaseURL: '');
+      addEnvironmentVar(host, 'prod', '/src', 'projectId', options.credentials ? options.projectId : '');
+      addEnvironmentVar(host, 'prod', '/src', 'storageBucket', options.credentials ? options.storageBucket : '');
+      addEnvironmentVar(host, 'prod', '/src', 'messagingSenderId', options.credentials ? options.measurementId : '');
+      addEnvironmentVar(host, 'prod', '/src', 'appId', options.credentials ? options.appId : '');
+      addEnvironmentVar(host, 'prod', '/src', 'measurementId', options.credentials ? options.measurementId : '');
+    }
   }
 }
 
@@ -79,8 +89,8 @@ export function capAngularSchematicAuthFirebase(_options: any): Rule {
     const movePath = normalize(_options.path + '/');
     const templateSource = apply(url('./files'), [
       template({
-          ..._options
-          }),
+        ..._options
+      }),
       move(movePath),
       forEach((fileEntry: FileEntry) => {
         if (tree.exists(fileEntry.path)) {
