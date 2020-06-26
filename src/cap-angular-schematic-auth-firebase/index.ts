@@ -11,7 +11,7 @@ import {
   Tree,
   url,
   chain,
-  noop,
+  // noop,
   SchematicsException
 } from '@angular-devkit/schematics';
 import { Schema as SchemaOptions } from './schema';
@@ -30,19 +30,50 @@ import {
   // removePropertyInAstObject,
   // InsertChange,
 } from 'schematics-utilities';
+import { appendToStartFile } from './cap-utils';
+
 import { join, normalize } from 'path';
+import { FileSystemSchematicContext } from '@angular-devkit/schematics/tools';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { getProjectMainFile, getSourceFile } from 'schematics-utilities/dist/cdk';
 
 
 export default function (options: any): Rule {
-  return chain([
-    options && options.skipModuleImport ? noop() : capAngularSchematicAuthFirebase(options),
-    options && options.skipPackageJson ? noop() : addPackageJsonDependencies(),
-    options && options.skipPackageJson ? noop() : installPackageJsonDependencies(),
-    options && options.skipModuleImport ? noop() : addModuleToImports(options),
-    addToEnvironments(options)
-  ]);
+  return (host: Tree, context: FileSystemSchematicContext) => {
+
+    const workspace = getWorkspace(host);
+    const project = getProjectFromWorkspace(workspace, options.project);
+    if (!project) {
+      throw new SchematicsException(`Project is not defined in this workspace.`);
+    }
+
+    // Get the styles.scss file 
+    let styles = `src/styles.scss`;
+    if (host.read(styles) === null) {
+      styles = `src/styles.css`;
+    }
+
+    const files: any = {
+      styles: styles,
+    }
+
+    function installPackageJsonDependencies(): Rule {
+      return (host: Tree, context: SchematicContext) => {
+        context.addTask(new NodePackageInstallTask());
+        context.logger.log('info', `🔍 Installing packages...`);
+        return host;
+      };
+    }
+    
+    return chain([
+      capAngularSchematicAuthFirebase(options),
+      addPackageJsonDependencies(),
+      installPackageJsonDependencies(),
+      addModuleToImports(options),
+      appendToStylesFile(files.styles),
+      addToEnvironments(options)
+    ])(host, context);
+  }
 }
 
 function addToEnvironments(options: SchemaOptions): Rule {
@@ -68,6 +99,134 @@ function addToEnvironments(options: SchemaOptions): Rule {
       addEnvironmentVar(host, 'prod', '/src', 'measurementId', options.credentials ? options.measurementId : '');
     }
   }
+}
+
+function appendToStylesFile(path: string): Rule {
+  return (host: Tree) => {
+    const content = `
+/*
+*
+* ==========================================
+* AUTHENTICATION STYLES 
+* ==========================================
+*
+*/
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.box > div {
+  height: max-content !important;
+  border-radius: 12px !important;
+  font-family: "Segoe UI","Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+  padding: 50px !important;
+  width: 550px !important;
+  margin: 0 !important;
+  color: #000;
+  background-color:  #e9ecef;
+}
+
+.box > div > form > div input {
+  border-radius: 12px !important;
+  // background-color: #e2e3e5;
+  // background-color:  #e9ecef;
+  border-color: #000;
+}
+
+.box > div > form > div input:focus {
+  border-radius: 12px !important;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-color: #000;
+  // background-color: #e9ecef;
+  border-width: 1.5px;
+}
+
+.box > div > form > div small a {
+  color: #000;
+}
+
+.box > div > form button {
+  margin-top: 2em !important;
+  border-radius: 12px !important;
+  background-color: #000 ;
+  border-color: #000;
+  color: #fff;
+}
+
+.box > div > form button:hover {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.box > div > div > form > div > div > div >input {
+  border-radius: 12px !important;
+  border-color: #000;
+  // background-color: #e9ecef;
+  // background-color: #e2e3e5;
+
+}
+
+.box > div > div > form > div > div > div >input:focus {
+  border-radius: 12px !important;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-color: #000;
+  // background-color: #e9ecef;
+  border-width: 1.5px;
+}
+
+.box > div > div > form > div > div > button {
+  margin-top: 2em !important;
+  border-radius: 12px !important;
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.box > div > div > form > div > div > button:hover {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.box > div > div > div > div > button {
+  margin-top: 2em !important;
+  border-radius: 12px !important;
+  background-color: #000;
+  border-color: #000;
+  color: #fff ;
+}
+
+.box > div > div > div > div > button:hover {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.box > div > div > div > div > div > button {
+  margin-top: 2em !important;
+  border-radius: 12px !important;
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.box > div > div > div > div > div > button:hover {
+  background-color: #343a40;
+  border-color: #343a40;
+}`;
+    appendToStartFile(host, path, content);
+    return host;
+  };
 }
 
 
@@ -121,13 +280,13 @@ export function addPackageJsonDependencies(): Rule {
   };
 }
 
-export function installPackageJsonDependencies(): Rule {
+/*export function installPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     context.addTask(new NodePackageInstallTask());
     context.logger.log('info', `🔍 Installing packages...`);
     return host;
   };
-}
+}*/
 
 function addModuleToImports (options: any): Rule {
   return (host: Tree) => {
