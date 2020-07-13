@@ -4,6 +4,10 @@
     </h1>
 </header>
 <section>
-    <cap-register-firebase></cap-register-firebase>
+    <cap-register-firebase
+        (userRegisterData)="userRegisterData($event)"
+        (userRegisterError)="userRegisterError($event)"
+        (userRegisterJWT)="userRegisterJWT($event)">
+    </cap-register-firebase>
 </section>
       

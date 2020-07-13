@@ -4,5 +4,8 @@
     </h1>
 </header>
 <section>
-    <cap-log-in-firebase></cap-log-in-firebase>
+    <cap-log-in-firebase
+      (userLoginData)="userLoginData($event)"
+      (userLoginError)="userLoginError($event)">
+    </cap-log-in-firebase>
 </section>

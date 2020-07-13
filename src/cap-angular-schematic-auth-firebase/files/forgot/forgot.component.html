@@ -4,5 +4,9 @@
     </h1>
 </header>
 <section>
-    <cap-change-password-firebase></cap-change-password-firebase>
+    <cap-change-password-firebase
+        (userEmail)="userEmail($event)"
+        (forgotPasswordRequest)="forgotPasswordRequest($event)"
+        (forgotPasswordRequestError)="forgotPasswordRequestError($event)">
+    </cap-change-password-firebase>
 </section>

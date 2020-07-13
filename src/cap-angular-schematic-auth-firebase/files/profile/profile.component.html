@@ -4,6 +4,14 @@
     </h1>
 </header>
 <section>
-    <cap-profile-firebase></cap-profile-firebase>
+    <cap-profile-firebase
+        (userProfileData)="userProfileData($event)"
+        (userProfileError)="userProfileError($event)"
+        (userProfileUpdate)="userProfileUpdate($event)"
+        (userProfileDataBase)="userProfileDataBase($event)"
+        (userProfileDataBaseUpdate)="userProfileDataBaseUpdate($event)"
+        (userProfileDataBaseUpdateError)="userProfileDataBaseUpdateError($event)"
+        (userProfileDataBaseError)="userProfileDataBaseError($event)">
+    </cap-profile-firebase>
 </section>
       
