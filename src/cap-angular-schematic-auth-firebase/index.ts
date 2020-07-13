@@ -107,7 +107,7 @@ function appendToStylesFile(path: string): Rule {
 /*
 *
 * ==========================================
-* AUTHENTICATION STYLES 
+* AUTHENTICATION STYLES
 * ==========================================
 *
 */
@@ -166,12 +166,22 @@ function appendToStylesFile(path: string): Rule {
   border-color: #343a40;
 }
 
+.box > div > form button:focus {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+}
+
+.box > div > form button:active {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+  transform: translateY(1.5px);
+}
+
 .box > div > div > form > div > div > div >input {
   border-radius: 12px !important;
   border-color: #000;
-  // background-color: #e9ecef;
-  // background-color: #e2e3e5;
-
 }
 
 .box > div > div > form > div > div > div >input:focus {
@@ -199,6 +209,19 @@ function appendToStylesFile(path: string): Rule {
   border-color: #343a40;
 }
 
+.box > div > div > form > div > div > button:focus {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+}
+
+.box > div > div > form > div > div > button:active {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+  transform: translateY(1.5px);
+}
+
 .box > div > div > div > div > button {
   margin-top: 2em !important;
   border-radius: 12px !important;
@@ -212,6 +235,19 @@ function appendToStylesFile(path: string): Rule {
   border-color: #343a40;
 }
 
+.box > div > div > div > div > button:focus {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+}
+
+.box > div > div > div > div > button:active {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+  transform: translateY(1.5px);
+}
+
 .box > div > div > div > div > div > button {
   margin-top: 2em !important;
   border-radius: 12px !important;
@@ -223,7 +259,21 @@ function appendToStylesFile(path: string): Rule {
 .box > div > div > div > div > div > button:hover {
   background-color: #343a40;
   border-color: #343a40;
-}`;
+}
+
+.box > div > div > div > div > div > button:focus {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+}
+
+.box > div > div > div > div > div > button:active {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  box-shadow: none !important;
+  transform: translateY(1.5px);
+}
+`;
     appendToStartFile(host, path, content);
     return host;
   };
