@@ -249,7 +249,7 @@ function appendToStylesFile(path: string): Rule {
 }
 
 .box > div > div > div > div > div > button {
-  margin-top: 2em !important;
+  // margin-top: 2em !important;
   border-radius: 12px !important;
   background-color: #000;
   border-color: #000;
@@ -317,7 +317,7 @@ export function capAngularSchematicAuthFirebase(_options: any): Rule {
 export function addPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     const dependencies: NodeDependency[] = [
-      { type: NodeDependencyType.Default, version: '^1.0.24', name: 'cap-authentication-firebase' },
+      { type: NodeDependencyType.Default, version: '^1.0.28', name: 'cap-authentication-firebase' },
       { type: NodeDependencyType.Default, version: '^7.2.3', name: 'firebase' },
       { type: NodeDependencyType.Default, version: '^5.2.1', name: '@angular/fire' },
       { type: NodeDependencyType.Default, version: '^4.3.1', name: 'bootstrap' },
