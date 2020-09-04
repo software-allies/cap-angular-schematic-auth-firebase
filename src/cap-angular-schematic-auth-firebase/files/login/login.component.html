@@ -5,6 +5,7 @@
 </header>
 <section>
     <cap-log-in-firebase
+      [redirectTo]="'/'"
       (userLoginData)="userLoginData($event)"
       (userLoginError)="userLoginError($event)">
     </cap-log-in-firebase>

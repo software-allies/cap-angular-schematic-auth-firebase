@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Register, RegisterJWT } from 'cap-authentication-firebase';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() { }
 
-  userRegisterData(UserData: any) {
+  userRegisterData(UserData: Register) {
     // console.log(UserData);
   }
 
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     // console.log(UserError);
   }
 
-  userRegisterJWT(JWT: any) {
+  userRegisterJWT(JWT: RegisterJWT) {
     // console.log(JWT);
   }
 
