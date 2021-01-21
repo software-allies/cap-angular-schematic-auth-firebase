@@ -9,7 +9,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationService } from './authentication.service';
-
+import { VerifyComponent } from './verify/verify.component';
 import { AuthenticationModule } from 'cap-authentication-firebase';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../environments/environment';
@@ -39,14 +39,16 @@ import { environment } from '../../../environments/environment';
     LoginComponent,
     LogoutComponent,
     ForgotComponent,
-    ProfileComponent
+    ProfileComponent,
+    VerifyComponent
   ],
   entryComponents: [
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
     ForgotComponent,
-    ProfileComponent
+    ProfileComponent,
+    VerifyComponent
   ],
   providers: [AuthenticationService]
 })
